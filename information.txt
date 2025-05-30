@@ -1,0 +1,10 @@
+--> About canny edge detection algorithm
+#threshold1
+# lower --> shaper
+# higher --> More edge intensity
+# going higher emphasizes more on already high intensity edges
+
+
+#Threshold2
+#80 is optimum for most detections
+
