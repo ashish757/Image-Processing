@@ -15,11 +15,11 @@ def getEllipticalContours(edge):
     for cnt in getContours(edge):
         cnt = cv.convexHull(cnt)
         # APPROXIMATION
-        epsilon = 0.01*cv.arcLength(cnt, True)
+        epsilon = 0.001*cv.arcLength(cnt, True)
         approx = cv.approxPolyDP(cnt, epsilon, True)
         cnt = approx
 
-        if len(cnt) >= 5 and cv.contourArea(cnt) > 10:
+        if len(cnt) >= 5 and cv.contourArea(cnt) > 6:
 
             ellipse = cv.fitEllipse(cnt)
             (x, y), (MA, ma), angle = ellipse
