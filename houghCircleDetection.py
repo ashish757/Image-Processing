@@ -1,17 +1,14 @@
 import cv2 as cv
 import numpy as np
-from utils import displayImage
-
-image = cv.imread("sample/rxlr-4-2.jpg")
 
 
+def houghCircleDetection(outputImage, inputImage):
+    img = outputImage.copy()
+    circles = cv.HoughCircles(inputImage, cv.HOUGH_GRADIENT, dp=4, minDist=20, param1=20, param2=80, minRadius=5, maxRadius=25)
+    circles = np.uint16(np.around(circles))
 
-circles = cv.HoughCircles(image, cv.HOUGH_GRADIENT, dp=3, minDist=30, param1=10, param2=80, minRadius=3, maxRadius=30)
-circles = np.uint16(np.around(circles))
-for circle in circles[0,:]:
-    cv.circle(image, (circle[0], circle[1]), circle[2], (255, 0,0), 2)
+    for circle in circles[0,:]:
+        cv.circle(img, (circle[0], circle[1]), circle[2], (255, 0,0), 2)
 
-
-displayImage(image)
-
+    return [img, len(circles[0])]
 

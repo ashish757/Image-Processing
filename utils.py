@@ -20,4 +20,3 @@ def displayImage(img, title="Image", screen_res = (1280, 720)):
 def addText(img, text, pos=(5, 100), font=cv.FONT_HERSHEY_SIMPLEX, scale=3, color=(255, 0, 0), thickness=5):
     cv.putText(img, text, pos, font, scale, color, thickness)
 
-
